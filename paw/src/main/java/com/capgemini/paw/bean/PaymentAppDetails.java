@@ -3,18 +3,31 @@ package com.capgemini.paw.bean;
 import java.time.LocalDate;
 
 public class PaymentAppDetails {
-
-	long accountNumber;
-	String customerName;
-	long customerPhoneNo;
-	String age;
-	String gender;
-	double balance;
-	String address;
-	long aadharNo;
-	LocalDate date;
+	private String username;
+	private String password;
+	private long accountNumber;
+	private String customerName;
+	private String phoneNo;
+	private int age;
+	private String gender;
+	private double balance;
+	private String address;
+	private String aadharNo;
+	private LocalDate date;
 	
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public long getAccountNumber() {
 		return accountNumber;
 	}
@@ -27,16 +40,16 @@ public class PaymentAppDetails {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-	public long getCustomerPhoneNo() {
-		return customerPhoneNo;
+	public String getPhoneNo() {
+		return phoneNo;
 	}
-	public void setCustomerPhoneNo(long customerPhoneNo) {
-		this.customerPhoneNo = customerPhoneNo;
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public String getGender() {
@@ -57,10 +70,10 @@ public class PaymentAppDetails {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public long getAadharNo() {
+	public String getAadharNo() {
 		return aadharNo;
 	}
-	public void setAadharNo(long aadharNo) {
+	public void setAadharNo(String aadharNo) {
 		this.aadharNo = aadharNo;
 	}
 	public LocalDate getDate() {
@@ -71,10 +84,14 @@ public class PaymentAppDetails {
 	}
 	@Override
 	public String toString() {
-		return "PaymentAppDetails [accountNumber=" + accountNumber + ", customerName=" + customerName
-				+ ", customerPhoneNo=" + customerPhoneNo + ", age=" + age + ", gender=" + gender + ", balance="
-				+ balance + ", address=" + address + ", aadharNo=" + aadharNo + ", date=" + date + "]";
+		return "PaymentAppDetails [accountNumber=" + accountNumber + ", customerName=" + customerName + ", phoneNo="
+				+ phoneNo + ", age=" + age + ", gender=" + gender + ", balance=" + balance + ", address=" + address
+				+ ", aadharNo=" + aadharNo + ", date=" + date + "]";
 	}
+	
+	
+	
+	
 	
 	
 
