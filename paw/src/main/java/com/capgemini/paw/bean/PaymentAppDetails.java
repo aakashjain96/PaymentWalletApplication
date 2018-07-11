@@ -82,12 +82,16 @@ public class PaymentAppDetails {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+	
 	@Override
 	public String toString() {
-		return "PaymentAppDetails [accountNumber=" + accountNumber + ", customerName=" + customerName + ", phoneNo="
-				+ phoneNo + ", age=" + age + ", gender=" + gender + ", balance=" + balance + ", address=" + address
-				+ ", aadharNo=" + aadharNo + ", date=" + date + "]";
+		return "PaymentAppDetails [username=" + username + ", password=" + password + ", accountNumber=" + accountNumber
+				+ ", customerName=" + customerName + ", phoneNo=" + phoneNo + ", age=" + age + ", gender=" + gender
+				+ ", balance=" + balance + ", address=" + address + ", aadharNo=" + aadharNo + ", date=" + date + "]";
 	}
+	
+
+	
 	
 	
 	

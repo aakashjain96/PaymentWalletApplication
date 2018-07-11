@@ -29,4 +29,16 @@ public class PaymentAppValidation {
 			return false;
 		}
 	}
+	public boolean validateUserName(String username)
+	{
+		return true;
+		
+	}
+	
+	public boolean validateUserPassword(String password)
+	{
+		return true;
+		
+	}
+
 }

@@ -1,7 +1,5 @@
 package com.capgemini.paw.service;
 
-import java.util.List;
-
 import com.capgemini.paw.bean.PaymentAppDetails;
 import com.capgemini.paw.dao.PaymentAppDAO;
 
@@ -9,35 +7,36 @@ public class PaymentAppService implements IPaymentAppService{
 
 	PaymentAppDAO dao=new PaymentAppDAO();
 	
+	public boolean loginAccount(String username, String password) {
+		
+		return dao.loginAccount(username, password);
+	}
+	
 	public int createAccount(PaymentAppDetails paymentAppDetails) {
 		return dao.createAccount(paymentAppDetails);
 		
 	}
 
-	public PaymentAppDetails showBalance(long accountNo) {
-	return dao.showBalance(accountNo);
+	public double showBalance() {
+		return dao.showBalance();
 		
 	}
 
-	public PaymentAppDetails deposit(double amount) {
+	public boolean deposit(double amount) {
 		return dao.deposit(amount);
-		// TODO Auto-generated method stub
-		
 	}
 
-	public void withdraw() {
-		// TODO Auto-generated method stub
-		
+	public boolean withdraw(double amount) {
+		return dao.withdraw(amount);
 	}
 
-	public void fundTransfer() {
-		// TODO Auto-generated method stub
-		
+	public boolean fundTransfer(int accountNo, double amount) {
+		return dao.fundTransfer(accountNo, amount);
 	}
 
-	public List<PaymentAppDetails> printPassbook() {
-		// TODO Auto-generated method stub
-		return null;
+	public PaymentAppDetails printTransaction() {
+		return dao.printTransaction();
+		
 	}
 
 }
