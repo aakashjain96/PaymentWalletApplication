@@ -10,7 +10,7 @@ public interface IPaymentAppService {
 
 	public int createAccount(PaymentAppDetails paymentAppDetails);
 	public PaymentAppDetails showBalance(long accountNo);
-	public double deposit();
+	public PaymentAppDetails deposit(double amount);
 	public void withdraw();
 	public void fundTransfer();
 	public List<PaymentAppDetails> printPassbook();

@@ -19,7 +19,7 @@ public class PaymentAppClient {
 		System.out.println(".....................................................");
 		System.out.println("..                                                 ..");
 		System.out.println("..              1.SignUp                           ..");
-		System.out.println("..              1.Login                            ..");
+		System.out.println("..              2.Login                            ..");
 		System.out.println("..              3.Exit                             ..");
 		System.out.println("..                                                 ..");
 		System.out.println(".....................................................");
@@ -30,7 +30,8 @@ public class PaymentAppClient {
 		switch (choice1) {
 		case 1:
 			createAccount();
-			//continue;
+			break;
+			
 		case 2:
 			
 			int choice = -1;
@@ -188,9 +189,9 @@ public class PaymentAppClient {
 		System.out.println("Enter the amount you want to deposit: ");
 					
 			double deposit=Double.parseDouble(br.readLine());
-			double balance=service.deposit();
-		System.out.println(balance);
-			
+		//	double balance=service.deposit(paymentAppDetails,deposit);
+//		System.out.println(balance);
+//			
 			
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block

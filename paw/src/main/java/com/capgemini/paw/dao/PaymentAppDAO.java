@@ -33,8 +33,12 @@ public class PaymentAppDAO implements IPaymentAppDAO {
 		
 	}
 
-	public double deposit() {
-		return 0;
+	public PaymentAppDetails deposit(double amount) {
+		
+//		PaymentAppDetails paymentAppDetails=paymentAppDetails.getBalance();
+		return null;
+		
+	
 
 		
 	}

@@ -19,8 +19,8 @@ public class PaymentAppService implements IPaymentAppService{
 		
 	}
 
-	public double deposit() {
-		return dao.deposit();
+	public PaymentAppDetails deposit(double amount) {
+		return dao.deposit(amount);
 		// TODO Auto-generated method stub
 		
 	}
