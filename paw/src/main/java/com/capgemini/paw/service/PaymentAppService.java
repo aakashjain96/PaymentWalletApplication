@@ -1,7 +1,11 @@
 package com.capgemini.paw.service;
 
-import com.capgemini.paw.bean.PaymentAppDetails;
+
+
+
+import com.capgemini.paw.bean.AccountDetails;
 import com.capgemini.paw.dao.PaymentAppDAO;
+
 
 public class PaymentAppService implements IPaymentAppService{
 
@@ -12,8 +16,8 @@ public class PaymentAppService implements IPaymentAppService{
 		return dao.loginAccount(username, password);
 	}
 	
-	public int createAccount(PaymentAppDetails paymentAppDetails) {
-		return dao.createAccount(paymentAppDetails);
+	public int createAccount(AccountDetails accountDetails) {
+		return dao.createAccount(accountDetails);
 		
 	}
 
@@ -34,9 +38,15 @@ public class PaymentAppService implements IPaymentAppService{
 		return dao.fundTransfer(accountNo, amount);
 	}
 
-	public PaymentAppDetails printTransaction() {
+	public AccountDetails printTransaction() {
 		return dao.printTransaction();
 		
 	}
+
+
+
+
+
+
 
 }

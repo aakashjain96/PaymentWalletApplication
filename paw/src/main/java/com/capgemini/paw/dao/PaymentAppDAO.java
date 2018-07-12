@@ -3,20 +3,23 @@ package com.capgemini.paw.dao;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.capgemini.paw.bean.PaymentAppDetails;
+import com.capgemini.paw.bean.AccountDetails;
+
 
 public class PaymentAppDAO implements IPaymentAppDAO {
 
-	public static PaymentAppDetails paymentAppDetails;
-	public static Map<String,PaymentAppDetails> map=new HashMap<String, PaymentAppDetails>();
+	public static AccountDetails accountDetails;
+	public static Map<String,AccountDetails> map=new HashMap<String, AccountDetails>();
+	public static Map<String,Double> transaction=new HashMap<String, Double>();
 	
+	int transactionId=(int) ((Math.random()*123)+999);	
 	
 public boolean loginAccount(String username, String password) {
 		
 		for(String key : map.keySet())
 		{
-			paymentAppDetails=map.get(key);
-			if( paymentAppDetails.getUsername().equals(username) && paymentAppDetails.getPassword().equals(password))
+			accountDetails=map.get(key);
+			if( accountDetails.getCustomerDetails().getUsername().equals(username) && accountDetails.getCustomerDetails().getPassword().equals(password))
 			{
 				return true;
 			}
@@ -26,23 +29,25 @@ public boolean loginAccount(String username, String password) {
 	}
 
 	
-	public int createAccount(PaymentAppDetails paymentAppDetails) {
+	public int createAccount(AccountDetails accountDetails) {
 		
-		map.put(paymentAppDetails.getUsername(), paymentAppDetails);
+		map.put(accountDetails.getCustomerDetails().getUsername(), accountDetails);
 		return 1;
 	}
 
 
 
 	public double showBalance() {
-		return paymentAppDetails.getBalance();
+		return accountDetails.getBalance();
 	}
 
 
 
 
 	public boolean deposit(double amount) {
-		paymentAppDetails.setBalance(paymentAppDetails.getBalance()+amount);
+		accountDetails.setBalance(accountDetails.getBalance()+amount);
+		String dep=transactionId +"  Amount of "+accountDetails.getBalance()+" is deposited: ";
+		transaction.put(dep,amount);
 		return true;
 	}
 
@@ -50,9 +55,11 @@ public boolean loginAccount(String username, String password) {
 
 
 	public boolean withdraw(double amount) {
-		if(paymentAppDetails.getBalance()>=amount)
+		if(accountDetails.getBalance()>=amount)
 		{
-		paymentAppDetails.setBalance(paymentAppDetails.getBalance()-amount);
+		accountDetails.setBalance(accountDetails.getBalance()-amount);
+		String with=transactionId +"  Amount of "+accountDetails.getBalance()+" is withdrawn: ";
+		transaction.put(with,amount);
 		return true;
 		}
 		else
@@ -65,17 +72,30 @@ public boolean loginAccount(String username, String password) {
 
 
 	public boolean fundTransfer(int accountNo, double amount) {
-		paymentAppDetails.setBalance(paymentAppDetails.getBalance()-amount);
-		map.keySet();
+	
+			
+			for(String key : map.keySet())
+			{
+				AccountDetails recieverAccount = map.get(key);
+				if(recieverAccount.getAccountNumber()==accountNo)
+				{
+					recieverAccount.setBalance(recieverAccount.getBalance()+amount);
+					accountDetails.setBalance(recieverAccount.getBalance()-amount);
+					String transfer=transactionId +"  Amount of "+ accountDetails.getBalance() +" is withdrawn from "+accountDetails.getAccountNumber() +"and deposited in"+recieverAccount.getAccountNumber();
+					transaction.put(transfer,amount);
+					return true;
+				}
+			}
+			return false;
+		}
+	
+
+
+
+
+	public AccountDetails printTransaction() {
+		return null;
 		
-		return true;
-	}
-
-
-
-
-	public PaymentAppDetails printTransaction() {
-		return paymentAppDetails;
 		
 	}
 

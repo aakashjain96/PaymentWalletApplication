@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
+import com.capgemini.paw.bean.AccountDetails;
+import com.capgemini.paw.bean.CustomerDetails;
 
-import com.capgemini.paw.bean.PaymentAppDetails;
 import com.capgemini.paw.service.PaymentAppService;
 import com.capgemini.paw.service.PaymentAppValidation;
 
@@ -14,7 +17,9 @@ import com.capgemini.paw.service.PaymentAppValidation;
 
 
 public class PaymentAppClient {
-	public static PaymentAppDetails paymentAppDetails = new PaymentAppDetails();
+	public static AccountDetails accountDetails = new AccountDetails();
+	public static CustomerDetails customerDetails=new CustomerDetails();
+	public static Map<String,Double> transaction=new HashMap<String, Double>();
 
 	public static void main(String[] args) {
 		
@@ -199,19 +204,20 @@ if(b) {
 
 			if (isValidPhoneNo && isValidAadharNo && isValidGender) {
 				
-				paymentAppDetails.setAccountNumber(accountNumber);
-				paymentAppDetails.setCustomerName(customerName);
-				paymentAppDetails.setPhoneNo(phoneNo);
-				paymentAppDetails.setAge(age);
-				paymentAppDetails.setGender(gender);
-				paymentAppDetails.setAddress(address);
-				paymentAppDetails.setAadharNo(aadharNo);
-				paymentAppDetails.setBalance(balance);
-				paymentAppDetails.setUsername(username);
-				paymentAppDetails.setPassword(password);
-				paymentAppDetails.setDate(date);
+				accountDetails.setAccountNumber(accountNumber);
+				customerDetails.setCustomerName(customerName);
+				customerDetails.setPhoneNo(phoneNo);
+				customerDetails.setAge(age);
+				customerDetails.setGender(gender);
+				customerDetails.setAddress(address);
+				customerDetails.setAadharNo(aadharNo);
+				accountDetails.setBalance(balance);
+				customerDetails.setUsername(username);
+				customerDetails.setPassword(password);
+				accountDetails.setDate(date);
+				accountDetails.setCustomerDetails(customerDetails);
 				
-				int worked = service.createAccount(paymentAppDetails);
+				int worked = service.createAccount(accountDetails);
 				if (worked == 1) {
 					System.out.println("Account created with Account no.  " + accountNumber);
 					System.out.println("Your UserName is: "+username);
@@ -251,7 +257,7 @@ if(b) {
 			if(isDepositAmount)
 			{
 				System.out.println("Amount is deposited in your wallet");
-				System.out.println("Your current balance is "+paymentAppDetails.getBalance());
+				System.out.println("Your current balance is "+accountDetails.getBalance());
 			}
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
@@ -274,7 +280,7 @@ if(b) {
 			if(isWithdrawAmount)
 			{
 				System.out.println("Amount is debited from your wallet");
-				System.out.println("Your current balance is "+paymentAppDetails.getBalance());
+				System.out.println("Your current balance is "+accountDetails.getBalance());
 			}
 			else
 			{
@@ -326,10 +332,7 @@ if(b) {
 	
 	public static void printTransaction()
 	{
-		PaymentAppService service = new PaymentAppService();
-		PaymentAppDetails payApp=service.printTransaction();
-		System.out.println("PaymentAppDetails [accountNumber=" + payApp.getAccountNumber() + ", customerName=" + payApp.getCustomerName() + ", balance="
-				+ payApp.getBalance() + ", date=" + payApp.getDate() + "]");
+		
 	}
 	
 	

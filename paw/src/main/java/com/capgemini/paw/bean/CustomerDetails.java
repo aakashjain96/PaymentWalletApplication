@@ -1,19 +1,19 @@
 package com.capgemini.paw.bean;
 
-import java.time.LocalDate;
 
-public class PaymentAppDetails {
+import java.util.List;
+
+public class CustomerDetails {
 	private String username;
 	private String password;
-	private long accountNumber;
 	private String customerName;
 	private String phoneNo;
 	private int age;
 	private String gender;
-	private double balance;
 	private String address;
 	private String aadharNo;
-	private LocalDate date;
+	private List<String> transactions;
+	
 	
 	
 	public String getUsername() {
@@ -28,12 +28,7 @@ public class PaymentAppDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public long getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
-	}
+	
 	public String getCustomerName() {
 		return customerName;
 	}
@@ -58,12 +53,7 @@ public class PaymentAppDetails {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public double getBalance() {
-		return balance;
-	}
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
+	
 	public String getAddress() {
 		return address;
 	}
@@ -76,19 +66,21 @@ public class PaymentAppDetails {
 	public void setAadharNo(String aadharNo) {
 		this.aadharNo = aadharNo;
 	}
-	public LocalDate getDate() {
-		return date;
-	}
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
 	
+	public List<String> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<String> transactions) {
+		this.transactions = transactions;
+	}
 	@Override
 	public String toString() {
-		return "PaymentAppDetails [username=" + username + ", password=" + password + ", accountNumber=" + accountNumber
-				+ ", customerName=" + customerName + ", phoneNo=" + phoneNo + ", age=" + age + ", gender=" + gender
-				+ ", balance=" + balance + ", address=" + address + ", aadharNo=" + aadharNo + ", date=" + date + "]";
+		return "CustomerDetails [username=" + username + ", password=" + password + ", customerName=" + customerName
+				+ ", phoneNo=" + phoneNo + ", age=" + age + ", gender=" + gender + ", address=" + address
+				+ ", aadharNo=" + aadharNo + ", transactions=" + transactions + "]";
 	}
+	
+	
 	
 
 	
