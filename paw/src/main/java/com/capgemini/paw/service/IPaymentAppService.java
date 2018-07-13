@@ -1,4 +1,6 @@
 package com.capgemini.paw.service;
+import java.util.List;
+
 import com.capgemini.paw.bean.AccountDetails;
 
 
@@ -11,7 +13,7 @@ public interface IPaymentAppService {
 	public boolean deposit(double amount);
 	public boolean withdraw(double amount);
 	public boolean fundTransfer(int accNo,double amount);
-	public AccountDetails printTransaction();
+	public List<String> printTransaction();
 
 	
 }

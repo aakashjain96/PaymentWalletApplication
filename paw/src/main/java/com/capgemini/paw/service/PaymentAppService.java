@@ -3,6 +3,8 @@ package com.capgemini.paw.service;
 
 
 
+import java.util.List;
+
 import com.capgemini.paw.bean.AccountDetails;
 import com.capgemini.paw.dao.PaymentAppDAO;
 
@@ -38,7 +40,7 @@ public class PaymentAppService implements IPaymentAppService{
 		return dao.fundTransfer(accountNo, amount);
 	}
 
-	public AccountDetails printTransaction() {
+	public List<String> printTransaction() {
 		return dao.printTransaction();
 		
 	}

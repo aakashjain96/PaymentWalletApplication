@@ -1,6 +1,8 @@
 package com.capgemini.paw.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.capgemini.paw.bean.AccountDetails;
@@ -10,7 +12,7 @@ public class PaymentAppDAO implements IPaymentAppDAO {
 
 	public static AccountDetails accountDetails;
 	public static Map<String,AccountDetails> map=new HashMap<String, AccountDetails>();
-	public static Map<String,Double> transaction=new HashMap<String, Double>();
+	public static List<String> transaction=new ArrayList<String>();
 	
 	int transactionId=(int) ((Math.random()*123)+999);	
 	
@@ -46,8 +48,8 @@ public boolean loginAccount(String username, String password) {
 
 	public boolean deposit(double amount) {
 		accountDetails.setBalance(accountDetails.getBalance()+amount);
-		String dep=transactionId +"  Amount of "+accountDetails.getBalance()+" is deposited: ";
-		transaction.put(dep,amount);
+		String dep=transactionId +"  Amount of "+amount+" is deposited:      "+accountDetails.getBalance();
+		transaction.add(dep);
 		return true;
 	}
 
@@ -58,8 +60,8 @@ public boolean loginAccount(String username, String password) {
 		if(accountDetails.getBalance()>=amount)
 		{
 		accountDetails.setBalance(accountDetails.getBalance()-amount);
-		String with=transactionId +"  Amount of "+accountDetails.getBalance()+" is withdrawn: ";
-		transaction.put(with,amount);
+		String with=transactionId +"  Amount of "+amount+" is withdrawn      "+accountDetails.getBalance();
+		transaction.add(with);
 		return true;
 		}
 		else
@@ -81,8 +83,8 @@ public boolean loginAccount(String username, String password) {
 				{
 					recieverAccount.setBalance(recieverAccount.getBalance()+amount);
 					accountDetails.setBalance(recieverAccount.getBalance()-amount);
-					String transfer=transactionId +"  Amount of "+ accountDetails.getBalance() +" is withdrawn from "+accountDetails.getAccountNumber() +"and deposited in"+recieverAccount.getAccountNumber();
-					transaction.put(transfer,amount);
+					String transfer=transactionId +"  Amount of "+ amount +" is withdrawn from "+accountDetails.getAccountNumber() +"and deposited in"+recieverAccount.getAccountNumber();
+					transaction.add(transfer);
 					return true;
 				}
 			}
@@ -93,9 +95,9 @@ public boolean loginAccount(String username, String password) {
 
 
 
-	public AccountDetails printTransaction() {
-		return null;
+	public List<String> printTransaction() {
 		
+		return transaction;
 		
 	}
 

@@ -1,6 +1,8 @@
 package com.capgemini.paw.dao;
 
 
+import java.util.List;
+
 import com.capgemini.paw.bean.AccountDetails;
 
 
@@ -13,6 +15,6 @@ public interface IPaymentAppDAO {
 	public boolean deposit(double amount);
 	public boolean withdraw(double amount);
 	public boolean fundTransfer(int accNo,double amount);
-	public AccountDetails printTransaction();
+	public List<String> printTransaction();
 	
 }

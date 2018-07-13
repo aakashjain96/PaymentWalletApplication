@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import com.capgemini.paw.bean.AccountDetails;
@@ -89,7 +91,7 @@ if(b) {
 				withdraw();
 				break;			
 			case 4:
-				
+				fundTransfer();
 				break;			
 			case 5:
 				printTransaction();
@@ -332,6 +334,13 @@ if(b) {
 	
 	public static void printTransaction()
 	{
+		PaymentAppService service = new PaymentAppService();
+		List<String> l1=service.printTransaction();
+		Iterator<String> it=l1.iterator();
+		while(it.hasNext()) {
+			String s= it.next();
+			System.out.println(s);	
+		}
 		
 	}
 	
