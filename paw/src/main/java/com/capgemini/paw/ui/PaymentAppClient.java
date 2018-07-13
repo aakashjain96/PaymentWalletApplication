@@ -19,8 +19,7 @@ import com.capgemini.paw.service.PaymentAppValidation;
 
 
 public class PaymentAppClient {
-	public static AccountDetails accountDetails = new AccountDetails();
-	public static CustomerDetails customerDetails=new CustomerDetails();
+
 	public static Map<String,Double> transaction=new HashMap<String, Double>();
 
 	public static void main(String[] args) {
@@ -166,6 +165,8 @@ if(b) {
 	
 	public static void createAccount()
 	{
+		 AccountDetails accountDetails = new AccountDetails();
+		 CustomerDetails customerDetails=new CustomerDetails();
 		try {
 
 			 PaymentAppService service = new PaymentAppService();
@@ -259,7 +260,7 @@ if(b) {
 			if(isDepositAmount)
 			{
 				System.out.println("Amount is deposited in your wallet");
-				System.out.println("Your current balance is "+accountDetails.getBalance());
+			
 			}
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
@@ -282,7 +283,6 @@ if(b) {
 			if(isWithdrawAmount)
 			{
 				System.out.println("Amount is debited from your wallet");
-				System.out.println("Your current balance is "+accountDetails.getBalance());
 			}
 			else
 			{
