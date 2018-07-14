@@ -97,7 +97,7 @@ if(b) {
 				break;			
 			case 6:
 				System.out.println("Thank you");
-				System.exit(0);
+			
 				break;	
 					
 						
@@ -175,7 +175,7 @@ if(b) {
 		
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-			long accountNumber = (long) ((Math.random() * 1234) + 111111111);
+			long accountNumber = (long) ((Math.random() * 1234) + 99999);
 			System.out.println("Enter your Name: ");
 			String customerName = br.readLine();
 			System.out.println("Enter your 10 digit PhoneNo: ");

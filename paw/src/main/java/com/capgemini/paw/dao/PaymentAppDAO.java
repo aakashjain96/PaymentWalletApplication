@@ -60,7 +60,7 @@ public boolean loginAccount(String username, String password) {
 		if(accountDetails.getBalance()>=amount)
 		{
 		accountDetails.setBalance(accountDetails.getBalance()-amount);
-		String with=transactionId +"  Amount of "+amount+" is withdrawn      "+accountDetails.getBalance();
+		String with=transactionId +"  Amount of "+amount+" is transferred";
 		transaction.add(with);
 		return true;
 		}
@@ -82,8 +82,8 @@ public boolean loginAccount(String username, String password) {
 				if(recieverAccount.getAccountNumber()==accountNo)
 				{
 					recieverAccount.setBalance(recieverAccount.getBalance()+amount);
-					accountDetails.setBalance(recieverAccount.getBalance()-amount);
-					String transfer=transactionId +"  Amount of "+ amount +" is withdrawn from "+accountDetails.getAccountNumber() +"and deposited in"+recieverAccount.getAccountNumber();
+					accountDetails.setBalance(accountDetails.getBalance()-amount);
+					String transfer=transactionId +"  Amount of "+ amount +" is transferred";
 					transaction.add(transfer);
 					return true;
 				}
