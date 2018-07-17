@@ -5,13 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import com.capgemini.paw.bean.AccountDetails;
 import com.capgemini.paw.bean.CustomerDetails;
-
+import com.capgemini.paw.exception.NoLoginIdFound;
 import com.capgemini.paw.service.PaymentAppService;
 import com.capgemini.paw.service.PaymentAppValidation;
 
@@ -106,6 +105,12 @@ if(b) {
 			}
 			
 		}
+}else {
+	try {
+		throw new NoLoginIdFound();
+	} catch (NoLoginIdFound e) {
+		System.err.println("enter valid login details");
+	}
 }
 		case 3:
 			break;
@@ -335,12 +340,11 @@ if(b) {
 	public static void printTransaction()
 	{
 		PaymentAppService service = new PaymentAppService();
-		List<String> l1=service.printTransaction();
-		Iterator<String> it=l1.iterator();
-		while(it.hasNext()) {
-			String s= it.next();
-			System.out.println(s);	
-		}
+		List<String> list=service.printTransaction();
+	
+			System.out.println(list);
+	
+	
 		
 	}
 	

@@ -2,8 +2,10 @@ package com.capgemini.paw.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.capgemini.paw.bean.AccountDetails;
 
@@ -48,6 +50,7 @@ public boolean loginAccount(String username, String password) {
 
 	public boolean deposit(double amount) {
 		accountDetails.setBalance(accountDetails.getBalance()+amount);
+
 		String dep=transactionId +"  Amount of "+amount+" is deposited:      "+accountDetails.getBalance();
 		transaction.add(dep);
 		return true;
@@ -96,10 +99,9 @@ public boolean loginAccount(String username, String password) {
 
 
 	public List<String> printTransaction() {
-		
 		return transaction;
-		
+
+		}
 	}
 
 
-}

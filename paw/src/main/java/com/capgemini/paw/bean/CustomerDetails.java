@@ -1,7 +1,10 @@
 package com.capgemini.paw.bean;
 
 
+
 import java.util.List;
+import java.util.Map;
+
 
 public class CustomerDetails {
 	private String username;
@@ -12,8 +15,7 @@ public class CustomerDetails {
 	private String gender;
 	private String address;
 	private String aadharNo;
-	private List<String> transactions;
-	
+	private Map<Long,String> transaction;
 	
 	
 	public String getUsername() {
@@ -28,7 +30,6 @@ public class CustomerDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	public String getCustomerName() {
 		return customerName;
 	}
@@ -53,7 +54,6 @@ public class CustomerDetails {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
 	public String getAddress() {
 		return address;
 	}
@@ -67,29 +67,19 @@ public class CustomerDetails {
 		this.aadharNo = aadharNo;
 	}
 	
-	public List<String> getTransactions() {
-		return transactions;
+	public Map<Long, String> getTransaction() {
+		return transaction;
 	}
-	public void setTransactions(List<String> transactions) {
-		this.transactions = transactions;
+	public void setTransaction(Map<Long, String> transaction) {
+		this.transaction = transaction;
 	}
 	@Override
 	public String toString() {
 		return "CustomerDetails [username=" + username + ", password=" + password + ", customerName=" + customerName
 				+ ", phoneNo=" + phoneNo + ", age=" + age + ", gender=" + gender + ", address=" + address
-				+ ", aadharNo=" + aadharNo + ", transactions=" + transactions + "]";
+				+ ", aadharNo=" + aadharNo + ", transaction=" + transaction + "]";
 	}
 	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-
-	
 }
+	
+	
