@@ -7,6 +7,11 @@ import org.junit.Test;
 public class PaymentAppServiceTest {
 
 	@Test
+	public void testLoginAccount() {
+		fail("Not yet implemented");
+	}
+
+	@Test
 	public void testCreateAccount() {
 		fail("Not yet implemented");
 	}
@@ -32,7 +37,7 @@ public class PaymentAppServiceTest {
 	}
 
 	@Test
-	public void testPrintPassbook() {
+	public void testPrintTransaction() {
 		fail("Not yet implemented");
 	}
 

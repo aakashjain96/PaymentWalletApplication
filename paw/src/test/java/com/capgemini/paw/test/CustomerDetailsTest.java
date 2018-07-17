@@ -5,10 +5,20 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PaymentAppDetailsTest {
+public class CustomerDetailsTest {
 
+	@Test
+	public void testGetUsername() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetPassword() {
+		fail("Not yet implemented");
+	}
 
 	
+
 	@Test
 	public void testGetCustomerName() {
 		Assert.assertEquals("aakash","aakash");
@@ -65,7 +75,4 @@ public class PaymentAppDetailsTest {
 		Assert.assertNotEquals("123456789012", "12345");
 		Assert.assertNotEquals("123456789012", "");
 	}
-
-	
-
 }

@@ -15,7 +15,7 @@ public class CustomerDetails {
 	private String gender;
 	private String address;
 	private String aadharNo;
-	private Map<Long,String> transaction;
+	
 	
 	
 	public String getUsername() {
@@ -67,17 +67,13 @@ public class CustomerDetails {
 		this.aadharNo = aadharNo;
 	}
 	
-	public Map<Long, String> getTransaction() {
-		return transaction;
-	}
-	public void setTransaction(Map<Long, String> transaction) {
-		this.transaction = transaction;
-	}
+	
+	
 	@Override
 	public String toString() {
 		return "CustomerDetails [username=" + username + ", password=" + password + ", customerName=" + customerName
 				+ ", phoneNo=" + phoneNo + ", age=" + age + ", gender=" + gender + ", address=" + address
-				+ ", aadharNo=" + aadharNo + ", transaction=" + transaction + "]";
+				+ ", aadharNo=" + aadharNo  + "]";
 	}
 	
 }

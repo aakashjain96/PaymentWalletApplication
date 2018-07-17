@@ -2,15 +2,18 @@ package com.capgemini.paw.test;
 
 import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class PaymentAppDAOTest {
 
 	@Test
+	public void testLoginAccount() {
+		fail("Not yet implemented");
+	}
+
+	@Test
 	public void testCreateAccount() {
 		fail("Not yet implemented");
-
 	}
 
 	@Test
@@ -34,7 +37,7 @@ public class PaymentAppDAOTest {
 	}
 
 	@Test
-	public void testPrintPassbook() {
+	public void testPrintTransaction() {
 		fail("Not yet implemented");
 	}
 

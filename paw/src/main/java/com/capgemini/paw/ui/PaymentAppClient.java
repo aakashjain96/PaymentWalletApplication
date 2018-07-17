@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -172,6 +174,7 @@ if(b) {
 	{
 		 AccountDetails accountDetails = new AccountDetails();
 		 CustomerDetails customerDetails=new CustomerDetails();
+		 List<String> transaction=new ArrayList<String>();
 		try {
 
 			 PaymentAppService service = new PaymentAppService();
@@ -224,6 +227,7 @@ if(b) {
 				customerDetails.setPassword(password);
 				accountDetails.setDate(date);
 				accountDetails.setCustomerDetails(customerDetails);
+				accountDetails.setTransaction(transaction);
 				
 				int worked = service.createAccount(accountDetails);
 				if (worked == 1) {
@@ -342,7 +346,9 @@ if(b) {
 		PaymentAppService service = new PaymentAppService();
 		List<String> list=service.printTransaction();
 	
-			System.out.println(list);
+			for(String l1:list) {
+				System.out.println(l1);
+			}
 	
 	
 		

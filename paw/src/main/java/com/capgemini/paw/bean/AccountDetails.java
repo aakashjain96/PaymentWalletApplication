@@ -1,6 +1,7 @@
 package com.capgemini.paw.bean;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class AccountDetails {
 
@@ -8,6 +9,14 @@ public class AccountDetails {
 	private double balance;
 	private LocalDate date;
 	private CustomerDetails customerDetails;
+	private List<String> transaction;
+	
+	public List<String> getTransaction() {
+		return transaction;
+	}
+	public void setTransaction(List<String> transaction) {
+		this.transaction = transaction;
+	}
 	
 	public long getAccountNumber() {
 		return accountNumber;

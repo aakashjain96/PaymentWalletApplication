@@ -14,7 +14,7 @@ public class PaymentAppDAO implements IPaymentAppDAO {
 
 	public static AccountDetails accountDetails;
 	public static Map<String,AccountDetails> map=new HashMap<String, AccountDetails>();
-	public static List<String> transaction=new ArrayList<String>();
+
 	
 	int transactionId=(int) ((Math.random()*123)+999);	
 	
@@ -52,7 +52,7 @@ public boolean loginAccount(String username, String password) {
 		accountDetails.setBalance(accountDetails.getBalance()+amount);
 
 		String dep=transactionId +"  Amount of "+amount+" is deposited:      "+accountDetails.getBalance();
-		transaction.add(dep);
+		accountDetails.getTransaction().add(dep);
 		return true;
 	}
 
@@ -64,7 +64,7 @@ public boolean loginAccount(String username, String password) {
 		{
 		accountDetails.setBalance(accountDetails.getBalance()-amount);
 		String with=transactionId +"  Amount of "+amount+" is withdrawn:      "+accountDetails.getBalance();
-		transaction.add(with);
+		accountDetails.getTransaction().add(with);
 		return true;
 		}
 		else
@@ -78,7 +78,7 @@ public boolean loginAccount(String username, String password) {
 
 	public boolean fundTransfer(int accountNo, double amount) {
 	
-			
+		if(accountDetails.getBalance()>=amount && accountNo!=accountDetails.getAccountNumber()) {
 			for(String key : map.keySet())
 			{
 				AccountDetails recieverAccount = map.get(key);
@@ -87,19 +87,23 @@ public boolean loginAccount(String username, String password) {
 					recieverAccount.setBalance(recieverAccount.getBalance()+amount);
 					accountDetails.setBalance(accountDetails.getBalance()-amount);
 					String transfer=transactionId +"  Amount of "+amount+" is transferred:      "+accountDetails.getBalance();
-					transaction.add(transfer);
+					accountDetails.getTransaction().add(transfer);
 					return true;
 				}
 			}
 			return false;
 		}
+		else {
+			return false;
+		}	
+	}
 	
 
 
 
 
 	public List<String> printTransaction() {
-		return transaction;
+		return accountDetails.getTransaction();
 
 		}
 	}
