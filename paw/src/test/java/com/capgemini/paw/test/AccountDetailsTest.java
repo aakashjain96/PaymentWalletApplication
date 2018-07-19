@@ -16,16 +16,9 @@ public class AccountDetailsTest {
 	@Test
 	public void testGetAccountNumber() {
 		account.setAccountNumber(123456);
-		assertEquals("123456",account.getAccountNumber());
+		assertEquals(123456,account.getAccountNumber());
 	}
 
-
-	@Test
-	public void testGetBalance() {
-		account.setBalance(1500.0);
-		System.out.println(account.getBalance());
-		Assert.assertEquals(1500.0, account.getBalance());
-	}
 
 	@Test
 	public void testGetDate() {

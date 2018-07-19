@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="Customer" class="com.capgemini.spring.core.Customer">
+		<property name="customerId" value="123"></property>
+		<property name="customerName" value="aakash"></property>
+		<property name="address" ref="address"></property>
+		<property name="product">
+			<list>
+			<ref bean="product1"></ref>
+			<ref bean="product2"></ref>
+			<ref bean="product3"></ref>
+			</list>
+		</property>
+	<property name="product_reviews">
+	<map>
+	<entry key="phone" value="4 stars"></entry>
+	<entry key="mobile" value="4 stars"></entry>
+	<entry key="laptop" value="4 stars"></entry>
+	</map>
+	</property>
+	</bean>
+
+	<bean id="address" class="com.capgemini.spring.core.Address">
+		<property name="street" value="gachibowli"></property>
+		<property name="city" value="hyderabad"></property>
+		<property name="state" value="telangana"></property>
+	</bean>
+
+	<bean id="product1" class="com.capgemini.spring.core.Product">
+		<property name="productId" value="456"></property>
+		<property name="productName" value="phone"></property>
+		<property name="productPrice" value="999"></property>
+	</bean>
+	<bean id="product2" class="com.capgemini.spring.core.Product">
+		<property name="productId" value="457"></property>
+		<property name="productName" value="mobile"></property>
+		<property name="productPrice" value="9599"></property>
+	</bean>
+	<bean id="product3" class="com.capgemini.spring.core.Product">
+		<property name="productId" value="458"></property>
+		<property name="productName" value="laptop"></property>
+		<property name="productPrice" value="5219"></property>
+	</bean>
+
+
+</beans>        
+        
+        
