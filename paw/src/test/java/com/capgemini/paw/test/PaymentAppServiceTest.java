@@ -2,43 +2,25 @@ package com.capgemini.paw.test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import com.capgemini.paw.bean.AccountDetails;
+import com.capgemini.paw.dao.PaymentAppDAO;
+import com.capgemini.paw.service.PaymentAppService;
 
 public class PaymentAppServiceTest {
 
-	@Test
-	public void testLoginAccount() {
-		fail("Not yet implemented");
-	}
+	AccountDetails account=new AccountDetails();
+	PaymentAppService service=new PaymentAppService();
+	
 
 	@Test
 	public void testCreateAccount() {
-		fail("Not yet implemented");
+	
+		Assert.assertEquals("1", service.createAccount(account));
 	}
 
-	@Test
-	public void testShowBalance() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testDeposit() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWithdraw() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFundTransfer() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testPrintTransaction() {
-		fail("Not yet implemented");
-	}
+	
 
 }
